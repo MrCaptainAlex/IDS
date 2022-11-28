@@ -58,8 +58,8 @@ public class ProjectPhone {
     HashMap<Integer,DipSemplice> mappaDipSempliciScelti = new HashMap();
     HashMap<Integer,StandardPhone> mappaStandardPhone = new HashMap();
     HashMap<Integer,Rubrica> mappaRubriche = new HashMap();
-    HashMap<Integer,Integer> mappaOre;
-    HashMap<Integer,Float> mappaCosto;
+    HashMap<Integer,Integer> mappaOre = new HashMap();
+    HashMap<Integer,Float> mappaCosto = new HashMap();
     int y=1,z=1,idProgettoDaAggiornare;  
     int oreLavorateTotali = 0;
     Float costoTotaleDelProgetto;
@@ -298,12 +298,14 @@ public class ProjectPhone {
    
     
     public Boolean cercaDipendenti(String nome,String modalita){
+        mappaDipSempliciScelti.clear();
+        mappaOre.clear();
+        mappaCosto.clear();
         if(modalita.equals("a")) {
         LinkedHashMap<Integer,DipSemplice> mappaDipSempliciPerCosto = new LinkedHashMap<>();
         ArrayList<Float> list = new ArrayList<>();
         costoTotaleDelProgetto = 0.0f;
-        mappaOre=new HashMap<>();
-        mappaCosto=new HashMap<>();
+        
         Integer budget=0,deadline=0;
         oreLavorateTotali = 0;
         
@@ -376,8 +378,6 @@ public class ProjectPhone {
             LinkedHashMap<Integer,DipSemplice> mappaDipSempliciPerOre = new LinkedHashMap<>();
         ArrayList<Integer> list = new ArrayList<>();
         costoTotaleDelProgetto = 0.0f;
-        mappaOre=new HashMap<>();
-        mappaCosto=new HashMap<>();
         Integer budget=0,deadline=0;
         oreLavorateTotali = 0;
         
